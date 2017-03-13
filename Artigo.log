@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.3)  13 MAR 2017 15:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.3)  13 MAR 2017 19:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -443,6 +443,12 @@ LaTeX Warning: Label `fig:AMD CORE' multiply defined.
 
 LaTeX Warning: Label `fig:AMD CORE' multiply defined.
 
+
+LaTeX Warning: Label `fig:AMD CORE' multiply defined.
+
+
+LaTeX Warning: Label `fig:AMD CORE' multiply defined.
+
 )
 \openout1 = `Artigo.aux'.
 
@@ -623,29 +629,49 @@ File: zenex.jpg Graphic file (type jpg)
 Package pdftex.def Info: zenex.jpg used on input line 75.
 (pdftex.def)             Requested size: 578.16078pt x 325.21542pt.
  [2 <./AMD-Zen_CPU-Complex.png> <./zenex.jpg>]
-<fig1.jpg, id=22, 254.3904pt x 232.2276pt>
+<AMD-Zen_Fetch.png, id=22, 1105.12875pt x 621.82312pt>
+File: AMD-Zen_Fetch.png Graphic file (type png)
+ <use AMD-Zen_Fetch.png>
+Package pdftex.def Info: AMD-Zen_Fetch.png used on input line 86.
+(pdftex.def)             Requested size: 884.10422pt x 497.45917pt.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 96.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
+
+<amd-zen-decode.jpg, id=23, 963.3591pt x 542.025pt>
+File: amd-zen-decode.jpg Graphic file (type jpg)
+ <use amd-zen-decode.jpg>
+Package pdftex.def Info: amd-zen-decode.jpg used on input line 103.
+(pdftex.def)             Requested size: 481.67838pt x 271.01183pt.
+
+[3 <./AMD-Zen_Fetch.png>] [4 <./amd-zen-decode.jpg>]
+<fig1.jpg, id=31, 254.3904pt x 232.2276pt>
 File: fig1.jpg Graphic file (type jpg)
  <use fig1.jpg>
-Package pdftex.def Info: fig1.jpg used on input line 141.
+Package pdftex.def Info: fig1.jpg used on input line 173.
 (pdftex.def)             Requested size: 213.39568pt x 194.81471pt.
 
-<fig2.jpg, id=23, 205.7286pt x 234.1548pt>
+<fig2.jpg, id=32, 205.7286pt x 234.1548pt>
 File: fig2.jpg Graphic file (type jpg)
  <use fig2.jpg>
-Package pdftex.def Info: fig2.jpg used on input line 148.
+Package pdftex.def Info: fig2.jpg used on input line 180.
 (pdftex.def)             Requested size: 128.0387pt x 145.73541pt.
- [3] [4 <./fig1.jpg> <./fig2.jpg>]
+ [5 <./fig1.jpg> <./fig2.jpg>]
 
-LaTeX Warning: Citation `knuth:84' on page 5 undefined on input line 192.
-
-
-LaTeX Warning: Citation `boulic:91' on page 5 undefined on input line 193.
+LaTeX Warning: Citation `knuth:84' on page 6 undefined on input line 224.
 
 
-LaTeX Warning: Citation `smith:99' on page 5 undefined on input line 193.
+LaTeX Warning: Citation `boulic:91' on page 6 undefined on input line 225.
+
+
+LaTeX Warning: Citation `smith:99' on page 6 undefined on input line 225.
 
 No file Artigo.bbl.
-[5] (./Artigo.aux)
+[6] (./Artigo.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -654,13 +680,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3422 strings out of 493029
- 45899 string characters out of 6136234
+ 3449 strings out of 493029
+ 46404 string characters out of 6136234
  120689 words of memory out of 5000000
- 6882 multiletter control sequences out of 15000+600000
+ 6904 multiletter control sequences out of 15000+600000
  21033 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,10n,28p,428b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,28p,429b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
@@ -670,10 +696,10 @@ tic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Artigo.pdf (5 pages, 520153 bytes).
+Output written on Artigo.pdf (6 pages, 940400 bytes).
 PDF statistics:
- 64 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 70 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

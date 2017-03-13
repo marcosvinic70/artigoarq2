@@ -63,11 +63,11 @@ A arquitetura ZEN é muito diferente das antigas arquiteturas da AMD, e segundo 
 \label{fig:AMD CORE}
 \end{figure}
 
-A CPU Complex conhecida como CCX é o conjunto de núcleos da CPU. É importante ressaltar que cada CCX está conectada a uma cache L3. Sendo que, a associatividade da Cache L3 é 16-way, e que ela é feita de 4 pedaços, por low-order. E por fim, cada núcleo pode acessar cada cache como a mesma latência média.
+A CPU Complex conhecida como CCX é o conjunto de núcleos da CPU. É importante ressaltar que cada CCX está conectada a uma cache L3. Sendo que, a associatividade da Cache L3 é 16-way, diminuindo o miss rate, e que ela é feita de 4 pedaços, por low-order. E por fim, cada núcleo pode acessar cada cache como a mesma latência média.
 
-Essa mudança foi crucial para o desempenho do Zen sobre o Excavator, na relação em que aumentou-se o número de pipelines de 4 para 6 na cache L1 e houve uma duplicação da quantidade de bits para a FMAC(fused multiply–add capability). Além disso, acrescentou-se a MMX Unit(Matrix Math Extensions), ou seja, uma unidade auxiliar para efetuar envolvendo matrizes. 
+Essa mudança foi crucial para o desempenho do Zen sobre o Excavator, na relação em que aumentou-se o número de pipelines de 4 para 6 na cache L1 e houve uma duplicação da quantidade de bits para a FMAC(fused multiply–add capability). Além disso, permaneceu a MMX Unit(Matrix Math Extensions), ou seja, uma unidade auxiliar para efetuar calculos envolvendo matrizes. 
 
-O aumento da duplicação da quantidade de bits para a FMAC, possibilita o aumento da quantidade de instruções que podem ser executadas em cada FMAC. Outra modificação importante é uma instruction decoder para Inteiro e FP, que no Excavator era divida. A unidade de decodificação é responsável, basicamente, por determinar qual instrução será executada depois que passou pelo intruction memory.
+O aumento da duplicação da quantidade de bits para a FMAC, possibilita o aumento da quantidade de instruções que podem ser executadas em cada FMAC. Outra modificação importante é uma instruction decoder para Inteiro e FP, que no Excavator era divida. A unidade de decodificação é responsável, basicamente, por determinar qual instrução será executada depois que passou pelo instruction memory.
 
 
 \begin{figure}[ht]
@@ -78,6 +78,38 @@ O aumento da duplicação da quantidade de bits para a FMAC, possibilita o aumen
 \end{figure}
 
 A partir dessas informações, com o aumento da capacidade das FMACs, investimento na Cache L3 de cada CCX e o aumento do número de pipelines da cache L1, pode ocorrer que para alguns softwares o IPC do ZEN supere o IPC do Excavator.
+
+A etapa instruction fetch do Pipeline é a primeira etapa do processo, e a arquitetura ZEN tem algumas diferenças das arquiteturas anteriores:
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=115mm,scale=0.8]{AMD-Zen_Fetch.png}
+\caption{CPU Complex, fonte: AMD}
+\label{fig:AMD CORE}
+\end{figure}
+
+Uma importante inovação da AMD nesse diagrama é o Branch Predictor desacoplado, isso significa que o fetching tem mais liberdade para percorrer outros componentes da CPU, usando alguns algoritmos internos pra CPU. De certa forma, isso irá reduzir a latência da CPU e vai reduzir as bolhas do pipeline, mas caso falhe, terá uma penalidade de poder.
+
+A TLB(Translation Lookaside Buffer) no Branch Predictor é responsável para reduzir a latência armazenando valores de traduções(virtual page - physical page) mais recentes, que está operando em 3 levels:
+
+\begin{itemize}
+	\item L0 com 8 entradas de páginas de qualquer tamanho; ?? Perguntar Luiz
+	\item L1 com 64 entradas de páginas de qualquer tamanho; ?? Perguntar Luiz
+	\item l2 com 512 entradas e suporte pra páginas de 4K até 256K;
+\end{itemize}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=115mm,scale=0.5]{amd-zen-decode.jpg}
+\caption{CPU Complex, fonte: AMD}
+\label{fig:AMD CORE}
+\end{figure}
+
+Na parte de decodificação, é interessante ressaltar a Stack Engine e o dispatch:
+\begin{itemize}
+	\item A Stack Engine aparece entre a queue e o dispatch(último bloco), permitindo uma geração de endereços de baixo-custo quando já é conhecido de ciclos anteriores. Isso permite que o sistema salve energia indo através da AGU e "percorrendo" as caches.
+	\item O dispatch do ZEN pode aplicar seis instruções por clock, até um máximo de 6/ciclos para INT e 4/ciclos para FP.
+\end{itemize}
 
 \section{General Information}
 
